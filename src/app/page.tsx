@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../i18n";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Home() {
   const { t, i18n } = useTranslation();
   const [messages, setMessages] = useState<{ sender: string; text: string }[]>(
@@ -13,7 +15,7 @@ export default function Home() {
 
   const sendMessage = async () => {
     if (message.trim()) {
-      const response = await fetch("http://localhost:5001/message", {
+      const response = await fetch(`${API_URL}/message`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
