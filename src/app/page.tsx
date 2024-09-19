@@ -15,7 +15,7 @@ export default function Home() {
 
   const sendMessage = async () => {
     if (message.trim()) {
-      const response = await fetch(`${API_URL}/message`, {
+      const response = await fetch("http://98.83.154.24:5001/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
